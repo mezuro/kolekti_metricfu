@@ -1,12 +1,17 @@
 language: ruby
+
 rvm:
   - 2.3.0
 
-before_install: gem install bundler -v 1.11.2
+addons:
+  code_climate:
+    repo_token: 25c4a1ef14cb1d4028a8443506c3ebdfc4d55167006ae0d029da4b5d8eb0e88e
 
-notifications:
-  email:
-    recipients:
-      - mezuro-core@lists.ime.usp.br
-    on_success: change
-    on_failure: always
+    before_install: gem install bundler -v 1.11.2
+
+    notifications:
+      email:
+        recipients:
+          - mezuro-core@lists.ime.usp.br
+          on_success: change
+          on_failure: always
