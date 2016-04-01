@@ -9,5 +9,5 @@ notifications:
   email:
     recipients:
       - mezuro-core@lists.ime.usp.br
-      on_success: change
-      on_failure: always
+    on_success: change
+    on_failure: always
