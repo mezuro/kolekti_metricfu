@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "codeclimate-test-reporter"
+  spec.add_development_dependency "cucumber", "~> 2.1"
 end
