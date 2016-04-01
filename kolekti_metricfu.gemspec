@@ -6,12 +6,16 @@ require 'kolekti_metricfu/version'
 Gem::Specification.new do |spec|
   spec.name          = "kolekti_metricfu"
   spec.version       = KolektiMetricfu::VERSION
-  spec.authors       = ["Rafael Reggiani Manzo"]
-  spec.email         = ["rr.manzo@protonmail.com"]
-
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.authors       = ["Daniel Miranda",
+                        "Diego Araújo",
+                        "Eduardo Araújo",
+                        "Rafael Reggiani Manzo"]
+  spec.email         = ["danielkza2@gmail.com",
+                        "diegoamc90@gmail.com",
+                        "duduktamg@hotmail.com",
+                        "rr.manzo@protonmail.com"]
+  spec.summary       = %q{Metric collecting support for Ruby that servers Kolekti.}
+  spec.homepage      = "https://github.com/mezuro/kolekti_metricfu"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
