@@ -10,6 +10,12 @@ FactoryGirl.define do
       sequence(:id, 1)
     end
 
+    trait :hotspot do
+      reading_group_id nil
+      aggregation_form nil
+      weight nil
+    end
+
     trait :flog do
       metric { FactoryGirl.build(:flog_metric) }
     end
@@ -24,5 +30,7 @@ FactoryGirl.define do
     end
 
     factory :flog_metric_configuration, traits: [:flog]
+    factory :saikuro_metric_configuration, traits: [:saikuro]
+    factory :flay_metric_configuration, traits: [:flay]
   end
 end
