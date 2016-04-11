@@ -14,6 +14,12 @@ FactoryGirl.define  do
       languages [:C]
     end
 
+    trait :hotspot do
+      type 'HotspotMetricSnapshot'
+      scope { { "type" => "SOFTWARE" } }
+      languages [:RUBY]
+    end
+
     factory :native_metric, class: KalibroClient::Entities::Miscellaneous::NativeMetric do
       native
 
