@@ -6,7 +6,11 @@ describe KolektiMetricfu::Parsers do
       let!(:flog_metric_configuration) { FactoryGirl.build(:flog_metric_configuration) }
       let!(:saikuro_metric_configuration) { FactoryGirl.build(:saikuro_metric_configuration) }
       let!(:flay_metric_configuration) { FactoryGirl.build(:flay_metric_configuration) }
-      let(:wanted_metric_configurations) { [flog_metric_configuration, saikuro_metric_configuration, flay_metric_configuration] }
+      let(:wanted_metric_configurations) { {
+        'flog' => flog_metric_configuration,
+        'saikuro' => saikuro_metric_configuration,
+        'flay' => flay_metric_configuration
+      } }
       let(:metric_fu_results) { FactoryGirl.build(:metric_fu_results) }
       let(:persistence_strategy) { FactoryGirl.build(:persistence_strategy) }
 
