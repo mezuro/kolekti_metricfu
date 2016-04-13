@@ -14,19 +14,9 @@ When(/^I request Kolekti to collect the wanted metrics$/) do
   @runner.run_wanted_metrics
 end
 
-Then(/^there should be hotspot metric results to be saved$/) do
-  expect(@persistence_strategy.hotspot_metric_results).to_not be_empty
-end
-
-Then(/^there should be tree metric results to be saved$/) do
-  expect(@persistence_strategy.tree_metric_results).to_not be_empty
-end
-
-Then(/^there should be tree metric results for all the wanted tree metrics$/) do
-  metric_configurations = @persistence_strategy.tree_metric_results.map do |tree_metric_result|
-    tree_metric_result[:metric_configuration]
-  end
-  metric_configurations.uniq!
+Then(/^there should be metric results for all the wanted metrics$/) do
+  metric_results = @persistence_strategy.tree_metric_results + @persistence_strategy.hotspot_metric_results
+  metric_configurations = metric_results.map { |metric_result| metric_result[:metric_configuration] }.to_set
 
   @wanted_metric_configurations.each do |wanted_metric_configuration|
     expect(metric_configurations).to include(wanted_metric_configuration)
