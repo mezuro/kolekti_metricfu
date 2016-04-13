@@ -59,7 +59,7 @@ FactoryGirl.define  do
       metric_fu
 
       name "Cyclomatic Complexity"
-      code 'saikuro'
+      code :saikuro
     end
 
     factory :flay_metric, parent: :hotspot_metric do
