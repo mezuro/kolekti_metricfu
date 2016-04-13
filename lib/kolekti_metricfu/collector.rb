@@ -20,7 +20,7 @@ module KolektiMetricfu
       tmp_file = Tempfile.new(['metric_fu', '.yml'], code_directory)
       begin
         Dir.chdir(code_directory) do
-          unless system(['metric_fu', '--format', 'yaml', '--out', tmp_file.path], [:out, :err] => '/dev/null')
+          unless system('metric_fu', '--format', 'yaml', '--out', tmp_file.path, [:out, :err] => '/dev/null')
             raise Kolekti::CollectorError.new('MetricFu failed')
           end
         end
