@@ -13,7 +13,7 @@ module KolektiMetricfu
                          'message' => reason }
           end
 
-          persistence_strategy.create_hotspot_metric_results(metric_configuration, results) unless results.empty?
+          persistence_strategy.create_related_hotspot_metric_results(metric_configuration, results) unless results.empty?
         end
       end
     end
