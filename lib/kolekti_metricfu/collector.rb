@@ -29,5 +29,9 @@ module KolektiMetricfu
         tmp_file.close!
       end
     end
+
+    def clean(code_directory, wanted_metric_configurations)
+      # Does not need to do anything, as collect metrics cleans things up already through a rescue block
+    end
   end
 end

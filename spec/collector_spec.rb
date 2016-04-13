@@ -81,5 +81,11 @@ describe KolektiMetricfu::Collector do
         end
       end
     end
+
+    describe 'clean' do
+      it 'is expected to be implemented and do nothing' do
+        expect { subject.clean(nil, nil) }.to_not raise_error
+      end
+    end
   end
 end
