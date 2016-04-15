@@ -4,6 +4,8 @@ The Kolekti MetricFu gem implements a collector for Ruby metrics and issues usin
 
 == Unreleased
 
+* Initial implementation of parsers and collector
+
 ===
 
 Kolekti MetricFu.

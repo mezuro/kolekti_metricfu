@@ -9,7 +9,7 @@ describe KolektiMetricfu::Parsers::Flay do
     describe 'parse' do
       let(:flay_results) { FactoryGirl.build(:metric_fu_results).results[:flay] }
       let(:metric_configuration) { FactoryGirl.build(:flay_metric_configuration) }
-      let(:persistence_strategy) { FactoryGirl.build(:persistence_strategy) }
+      let(:persistence_strategy) { instance_double(Kolekti::MemoryPersistenceStrategy) }
       let(:first_results) {
         [
           {'module_name' => 'lib.metric_collector.native.metric_fu.parser.flay',
@@ -41,8 +41,8 @@ describe KolektiMetricfu::Parsers::Flay do
         expect(described_class).to receive(:parse_file_name).with('app/controllers/repositories_controller.rb'){ 'app.controllers.repositories_controller' }
         expect(described_class).to receive(:parse_file_name).with('lib/metric_collector/native/metric_fu/parser/saikuro.rb'){ 'lib.metric_collector.native.metric_fu.parser.saikuro' }
 
-        expect(persistence_strategy).to receive(:create_hotspot_metric_results).with(metric_configuration, first_results)
-        expect(persistence_strategy).to receive(:create_hotspot_metric_results).with(metric_configuration, second_results)
+        expect(persistence_strategy).to receive(:create_related_hotspot_metric_results).with(metric_configuration, first_results)
+        expect(persistence_strategy).to receive(:create_related_hotspot_metric_results).with(metric_configuration, second_results)
 
         described_class.parse(flay_results, metric_configuration, persistence_strategy)
       end
