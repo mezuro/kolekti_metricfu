@@ -59,7 +59,7 @@ describe KolektiMetricfu::Collector do
       end
 
       context 'when collecting is successful' do
-        it 'is expected collect and parse all metrics' do
+        it 'is expected to collect and parse all metrics' do
           expect(tempfile).to receive(:path).twice.and_return(output_path)
           is_expected.to receive(:system).with(*metric_fu_params).and_return(true)
           expect(KolektiMetricfu::Parsers).to receive(:parse_all).with(output_path, wanted_metric_configurations,
