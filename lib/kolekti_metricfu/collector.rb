@@ -35,8 +35,8 @@ module KolektiMetricfu
     end
 
     def default_value_from(metric_configuration)
-      metric = !metric_configuration.nil? ? metric_configuration.metric : nil
-      if metric.nil? || metric.type != 'NativeMetricSnapshot'
+      metric = metric_configuration.metric
+      if metric.type != 'NativeMetricSnapshot'
         raise Kolekti::UnavailableMetricError.new("Invalid Metric configuration type")
       end
 
