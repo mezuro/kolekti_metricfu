@@ -87,5 +87,33 @@ describe KolektiMetricfu::Collector do
         expect { subject.clean(nil, nil) }.to_not raise_error
       end
     end
+
+    describe 'default_value_from' do
+      context 'with a known metric' do
+        let(:metric_configuration) { FactoryGirl.build(:flog_metric_configuration) }
+
+        it 'is expected to fetch its default value from its parser' do
+          expect(subject.default_value_from(metric_configuration)).to eq(KolektiMetricfu::Parsers::PARSERS[:flog].default_value)
+        end
+      end
+
+      context 'with a metric with an invalid type' do
+        let(:metric_configuration) { FactoryGirl.build(:flay_metric_configuration) }
+
+        it 'is expected to raise an UnavailableMetricError' do
+          expect { subject.default_value_from(metric_configuration) }.to raise_error(Kolekti::UnavailableMetricError,
+                                                                                     'Invalid Metric configuration type')
+        end
+      end
+
+      context 'with a metric that does not belong to MetricFu' do
+        let(:metric_configuration) { FactoryGirl.build(:metric_configuration, metric: FactoryGirl.build(:native_metric)) }
+
+        it 'is expected to raise an UnavailableMetricError' do
+          expect { subject.default_value_from(metric_configuration) }.to raise_error(Kolekti::UnavailableMetricError,
+                                                                                     'Metric configuration does not belong to MetricFu')
+        end
+      end
+    end
   end
 end

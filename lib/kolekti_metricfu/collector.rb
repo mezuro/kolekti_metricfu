@@ -33,5 +33,21 @@ module KolektiMetricfu
     def clean(code_directory, wanted_metric_configurations)
       # Does not need to do anything, as collect metrics cleans things up already through a rescue block
     end
+
+    def default_value_from(metric_configuration)
+      metric = !metric_configuration.nil? ? metric_configuration.metric : nil
+      if metric.nil? || metric.type != 'NativeMetricSnapshot'
+        raise Kolekti::UnavailableMetricError.new("Invalid Metric configuration type")
+      end
+
+      parser = nil
+      if metric.metric_collector_name == self.name
+        parser = KolektiMetricfu::Parsers::PARSERS[metric.code.to_sym]
+      end
+
+      raise Kolekti::UnavailableMetricError.new("Metric configuration does not belong to MetricFu") if parser.nil?
+
+      parser.default_value
+    end
   end
 end
