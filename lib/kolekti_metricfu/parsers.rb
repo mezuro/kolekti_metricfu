@@ -15,7 +15,8 @@ module KolektiMetricfu
       parsed_result = YAML.load_file(results_yaml_path)
 
       wanted_metric_configurations.each do |code, metric_configuration|
-        PARSERS[code].parse(parsed_result[code], metric_configuration, persistence_strategy)
+        code_sym = code.to_sym
+        PARSERS[code_sym].parse(parsed_result[code_sym], metric_configuration, persistence_strategy)
       end
     end
   end
