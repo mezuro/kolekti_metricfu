@@ -4,9 +4,12 @@ The Kolekti MetricFu gem implements a collector for Ruby metrics and issues usin
 
 == Unreleased
 
+== v0.0.1 - 25/04/2016
+
+* Fix handling of duplicated methods in saikuro and flog compared with KalibroProcessor implementation
 * Fix metric code handling in parsers
 * Implement default value handling
-* Initial implementation of parsers and collector
+* Implementation of parsers and collector
 
 ===
 
