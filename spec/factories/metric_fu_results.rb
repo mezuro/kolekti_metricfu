@@ -34,6 +34,10 @@ FactoryGirl.define do
                   { :name => "Repository#reprocess",
                     :complexity => 5,
                     :lines => 10},
+                  # Intentionally duplicated
+                  { :name => "Repository#reprocess",
+                    :complexity => 10,
+                    :lines => 10},
                   { :name => "Repository#process",
                     :complexity => 10,
                     :lines => 20

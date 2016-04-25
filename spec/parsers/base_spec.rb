@@ -9,9 +9,12 @@ describe KolektiMetricfu::Parsers::Base do
     describe 'module_name_suffix' do
       cases = {
         'module#none' => '',
-        'self.method' => '.method',
-        'Class#method' => '.Class.method',
-        'Module::Class#self.method' => '.Module.Class.method'
+        'Class#method' => '.Class.#method',
+        'Class::method' => '.Class.::method',
+        'Class#self.method' => '.Class.::method',
+        'Module::Class#method' => '.Module.Class.#method',
+        'Module::Class#self.method' => '.Module.Class.::method',
+        'Module::Class::method' => '.Module.Class.::method'
       }
 
       cases.each do |input, output|
