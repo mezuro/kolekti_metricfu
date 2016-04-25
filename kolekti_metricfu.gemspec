@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'kolekti_metricfu/version'
+require 'kolekti/metricfu/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "kolekti_metricfu"
-  spec.version       = KolektiMetricfu::VERSION
+  spec.version       = Kolekti::Metricfu::VERSION
   spec.authors       = ["Daniel Miranda",
                         "Diego Araújo",
                         "Eduardo Araújo",

@@ -12,7 +12,7 @@ end
 require 'byebug'
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'kolekti_metricfu'
+require 'kolekti/metricfu'
 
 require 'factory_girl'
 FactoryGirl.find_definitions

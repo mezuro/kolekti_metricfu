@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe KolektiMetricfu::Collector do
+describe Kolekti::Metricfu::Collector do
   describe 'class method' do
     describe 'available?' do
       context 'with a successful call (system exit 0)' do
@@ -62,7 +62,7 @@ describe KolektiMetricfu::Collector do
         it 'is expected to collect and parse all metrics' do
           expect(tempfile).to receive(:path).twice.and_return(output_path)
           is_expected.to receive(:system).with(*metric_fu_params).and_return(true)
-          expect(KolektiMetricfu::Parsers).to receive(:parse_all).with(output_path, wanted_metric_configurations,
+          expect(Kolekti::Metricfu::Parsers).to receive(:parse_all).with(output_path, wanted_metric_configurations,
                                                                        persistence_strategy)
 
           subject.collect_metrics(code_directory, wanted_metric_configurations, persistence_strategy)
@@ -73,7 +73,7 @@ describe KolektiMetricfu::Collector do
         it 'is expected to raise a Collector Error' do
           expect(tempfile).to receive(:path).once.and_return(output_path)
           is_expected.to receive(:system).with(*metric_fu_params).and_return(false)
-          expect(KolektiMetricfu::Parsers).to receive(:parse_all).never
+          expect(Kolekti::Metricfu::Parsers).to receive(:parse_all).never
 
           expect {
             subject.collect_metrics(code_directory, wanted_metric_configurations, persistence_strategy)
@@ -93,7 +93,7 @@ describe KolektiMetricfu::Collector do
         let(:metric_configuration) { FactoryGirl.build(:flog_metric_configuration) }
 
         it 'is expected to fetch its default value from its parser' do
-          expect(subject.default_value_from(metric_configuration)).to eq(KolektiMetricfu::Parsers::PARSERS[:flog].default_value)
+          expect(subject.default_value_from(metric_configuration)).to eq(Kolekti::Metricfu::Parsers::PARSERS[:flog].default_value)
         end
       end
 

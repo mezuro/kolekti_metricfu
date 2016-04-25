@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe KolektiMetricfu::Parsers::Base do
+describe Kolekti::Metricfu::Parsers::Base do
   it 'is expected to be a Kolekti Parser' do
     expect(subject).to be_a(Kolekti::Parser)
   end

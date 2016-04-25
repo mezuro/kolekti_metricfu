@@ -10,7 +10,7 @@ end
 require 'byebug'
 
 # The gem itself
-require 'kolekti_metricfu'
+require 'kolekti/metricfu'
 
 require 'factory_girl'
 FactoryGirl.find_definitions

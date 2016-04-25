@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe KolektiMetricfu::Parsers::Saikuro do
+describe Kolekti::Metricfu::Parsers::Saikuro do
   it 'is expected to be a Base parser' do
-    expect(subject).to be_a(KolektiMetricfu::Parsers::Base)
+    expect(subject).to be_a(Kolekti::Metricfu::Parsers::Base)
   end
 
   describe 'class methods' do

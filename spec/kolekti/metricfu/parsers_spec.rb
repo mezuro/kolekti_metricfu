@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe KolektiMetricfu::Parsers do
+describe Kolekti::Metricfu::Parsers do
   describe 'methods' do
     describe 'parse_all' do
       let!(:flog_metric_configuration) { FactoryGirl.build(:flog_metric_configuration) }
@@ -19,11 +19,11 @@ describe KolektiMetricfu::Parsers do
       end
 
       it 'is expected to call all parsers' do
-        expect(KolektiMetricfu::Parsers::Flog).to receive(:parse)
-        expect(KolektiMetricfu::Parsers::Saikuro).to receive(:parse)
-        expect(KolektiMetricfu::Parsers::Flay).to receive(:parse)
+        expect(Kolekti::Metricfu::Parsers::Flog).to receive(:parse)
+        expect(Kolekti::Metricfu::Parsers::Saikuro).to receive(:parse)
+        expect(Kolekti::Metricfu::Parsers::Flay).to receive(:parse)
 
-        KolektiMetricfu::Parsers.parse_all("/test/test", wanted_metric_configurations, persistence_strategy)
+        Kolekti::Metricfu::Parsers.parse_all("/test/test", wanted_metric_configurations, persistence_strategy)
       end
     end
   end
