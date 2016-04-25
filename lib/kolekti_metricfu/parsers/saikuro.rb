@@ -7,7 +7,9 @@ module KolektiMetricfu
           file[:classes].each do |cls|
             # Filter duplicate methods, picking only the latest. Fortunately Hash::[] will pick the latest element
             # when receiveing an array.
-            methods = Hash[cls[:methods].map { |method| [method[:name], method] }]
+            methods_by_name = cls[:methods].map { |method| [method[:name], method] }
+            # FIXME: Since ruby 2.1 this can be replaced by 'methods_by_name.to_hash'
+            methods = Hash[methods_by_name]
             methods.each_value do |method|
               value = method[:complexity]
               name_suffix = module_name_suffix(method[:name])
