@@ -17,11 +17,6 @@ FactoryGirl.define do
                :operators => {:perform_later=>1.1},
                :score => 2.0,
                :path => "app/models/repository.rb:30"},
-             # Intentionally duplicated
-             "Repository#reprocess"=>{
-               :operators => {:perform_later=>1.1},
-               :score => 3.0,
-               :path => "app/models/repository.rb:30"},
              "main#none" => {
                :operators=>{:require=>36.20000000000003},
                :score=>3.0,

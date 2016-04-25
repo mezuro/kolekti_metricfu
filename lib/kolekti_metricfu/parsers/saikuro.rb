@@ -2,8 +2,6 @@ module KolektiMetricfu
   module Parsers
     class Saikuro < Base
       def self.parse(collected_metrics_hash, metric_configuration, persistence_strategy)
-
-
         collected_metrics_hash[:files].each do |file|
           name_prefix = parse_file_name(file[:filename])
           file[:classes].each do |cls|
