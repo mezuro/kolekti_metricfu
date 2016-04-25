@@ -18,8 +18,13 @@ describe KolektiMetricfu::Parsers::Flog do
         expect(described_class).to receive(:module_name_suffix).with('Repository#process'){ '.Repository.process' }
         expect(described_class).to receive(:module_name_suffix).with('Repository#reprocess'){ '.Repository.reprocess' }
 
-        expect(persistence_strategy).to receive(:create_tree_metric_result).with(metric_configuration, 'app.models.repository.Repository.process', 1.1, KalibroClient::Entities::Miscellaneous::Granularity::METHOD)
-        expect(persistence_strategy).to receive(:create_tree_metric_result).with(metric_configuration, 'app.models.repository.Repository.reprocess', 2.0, KalibroClient::Entities::Miscellaneous::Granularity::METHOD)
+        granularity = KalibroClient::Entities::Miscellaneous::Granularity::METHOD
+        expect(persistence_strategy).to receive(:create_tree_metric_result).with(
+          metric_configuration, 'app.models.repository.Repository.process', 1.1, granularity)
+        expect(persistence_strategy).to receive(:create_tree_metric_result).with(
+          metric_configuration, 'app.models.repository.Repository.reprocess', 3.0, granularity)
+        expect(persistence_strategy).to receive(:create_tree_metric_result).with(
+          metric_configuration, 'app.models.repository.Repository.reprocess', 2.0, granularity).never
 
         described_class.parse(flog_results, metric_configuration, persistence_strategy)
       end
