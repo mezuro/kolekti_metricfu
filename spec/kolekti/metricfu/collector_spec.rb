@@ -35,7 +35,7 @@ describe Kolekti::Metricfu::Collector do
 
       it 'is expected to load the supported metrics' do
         expect_any_instance_of(described_class).to receive(:parse_supported_metrics).with(
-          /\/metrics\.yml$/, 'MetricFu', [:RUBY]) { supported_metrics }
+          %r{/metrics\.yml$}, 'MetricFu', [:RUBY]) { supported_metrics }
 
         subject = described_class.new
         expect(subject.supported_metrics).to eq(supported_metrics)
