@@ -10,4 +10,4 @@ RSpec::Core::RakeTask.new(:spec)
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/lib')
 Dir['gem_tasks/**/*.rake'].each { |rake| load rake }
 
-task default: [:spec, :cucumber]
+task default: [:spec, :cucumber, :rubocop]
