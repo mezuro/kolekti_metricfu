@@ -1,8 +1,8 @@
 Given(/^I have a set of wanted metrics for all the supported ones$/) do
   # TODO: this was copied from PHPMD. Adapt it to tree metrics as well
-  @wanted_metric_configurations = Kolekti.collectors.first.supported_metrics.map { |_, metric|
+  @wanted_metric_configurations = Kolekti.collectors.first.supported_metrics.map do |_, metric|
     KalibroClient::Entities::Configurations::MetricConfiguration.new(metric: metric)
-  }
+  end
 end
 
 Given(/^a persistence strategy is defined$/) do

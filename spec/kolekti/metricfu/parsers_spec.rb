@@ -6,7 +6,8 @@ describe Kolekti::Metricfu::Parsers do
       let!(:flog_metric_configuration) { FactoryGirl.build(:flog_metric_configuration) }
       let!(:saikuro_metric_configuration) { FactoryGirl.build(:saikuro_metric_configuration) }
       let!(:flay_metric_configuration) { FactoryGirl.build(:flay_metric_configuration) }
-      let(:wanted_metric_configurations) { {
+      let(:wanted_metric_configurations) {
+        {
         flog: flog_metric_configuration,
         saikuro: saikuro_metric_configuration,
         flay: flay_metric_configuration
@@ -23,7 +24,7 @@ describe Kolekti::Metricfu::Parsers do
         expect(Kolekti::Metricfu::Parsers::Saikuro).to receive(:parse)
         expect(Kolekti::Metricfu::Parsers::Flay).to receive(:parse)
 
-        Kolekti::Metricfu::Parsers.parse_all("/test/test", wanted_metric_configurations, persistence_strategy)
+        Kolekti::Metricfu::Parsers.parse_all('/test/test', wanted_metric_configurations, persistence_strategy)
       end
     end
   end

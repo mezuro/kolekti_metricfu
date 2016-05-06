@@ -3,7 +3,7 @@ module Kolekti
     module Parsers
       class Base < Kolekti::Parser
         def self.module_name_suffix(module_name)
-          return '' if module_name.to_s.end_with?("#none")
+          return '' if module_name.to_s.end_with?('#none')
 
           # Replace Saikuro's representation of a class method (#self.method) with Flog's
           # (::method) so we can treat both the same later.
@@ -14,7 +14,7 @@ module Kolekti
           # Replace the separators in the path (and only the path) with dots
           module_path.gsub!(/#|::/, '.')
           # Put everything back together
-          return '.' + module_path + '.' + prefix + module_name
+          '.' + module_path + '.' + prefix + module_name
         end
       end
     end
