@@ -13,8 +13,7 @@ using MetricFu
 *   Implement default value handling
 *   Implementation of parsers and collector
 
-
-### 
+---
 
 Kolekti MetricFu. Copyright (C) 2016  The Mezuro Team
 
