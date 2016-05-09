@@ -35,7 +35,7 @@ describe Kolekti::Metricfu::Collector do
 
       it 'is expected to load the supported metrics' do
         expect_any_instance_of(described_class).to receive(:parse_supported_metrics).with(
-          /\/metrics\.yml$/, 'MetricFu', [:RUBY]) { supported_metrics }
+          %r{/metrics\.yml$}, 'MetricFu', [:RUBY]) { supported_metrics }
 
         subject = described_class.new
         expect(subject.supported_metrics).to eq(supported_metrics)
@@ -43,7 +43,7 @@ describe Kolekti::Metricfu::Collector do
     end
 
     describe 'collect_metrics' do
-      let(:code_directory) { "/tmp/test" }
+      let(:code_directory) { '/tmp/test' }
       let(:output_path) { code_directory + '/metric_fu2843-8392-92849382--0.yml' }
       let(:tempfile) { instance_double(Tempfile) }
       let(:wanted_metric_configurations) { double }
@@ -63,7 +63,7 @@ describe Kolekti::Metricfu::Collector do
           expect(tempfile).to receive(:path).twice.and_return(output_path)
           is_expected.to receive(:system).with(*metric_fu_params).and_return(true)
           expect(Kolekti::Metricfu::Parsers).to receive(:parse_all).with(output_path, wanted_metric_configurations,
-                                                                       persistence_strategy)
+            persistence_strategy)
 
           subject.collect_metrics(code_directory, wanted_metric_configurations, persistence_strategy)
         end
@@ -102,7 +102,7 @@ describe Kolekti::Metricfu::Collector do
 
         it 'is expected to raise an UnavailableMetricError' do
           expect { subject.default_value_from(metric_configuration) }.to raise_error(Kolekti::UnavailableMetricError,
-                                                                                     'Invalid Metric configuration type')
+            'Invalid Metric configuration type')
         end
       end
 
@@ -111,7 +111,7 @@ describe Kolekti::Metricfu::Collector do
 
         it 'is expected to raise an UnavailableMetricError' do
           expect { subject.default_value_from(metric_configuration) }.to raise_error(Kolekti::UnavailableMetricError,
-                                                                                     'Metric configuration does not belong to MetricFu')
+            'Metric configuration does not belong to MetricFu')
         end
       end
     end

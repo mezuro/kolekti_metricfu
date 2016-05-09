@@ -1,7 +1,7 @@
 require 'fileutils'
 
 After('@clear_repository_dir') do
-  FileUtils.rm_rf(@repository_path) if File.exists?(@repository_path)
+  FileUtils.rm_rf(@repository_path) if File.exist?(@repository_path)
   @repository_path = nil
 end
 

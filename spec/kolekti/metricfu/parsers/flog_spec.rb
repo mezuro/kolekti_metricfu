@@ -12,11 +12,11 @@ describe Kolekti::Metricfu::Parsers::Flog do
       let(:persistence_strategy) { FactoryGirl.build(:persistence_strategy) }
 
       it 'is expected to persist tree metric results' do
-        expect(described_class).to receive(:parse_file_name).with(flog_results[:method_containers][0][:path]){ 'app.models.repository' }
+        expect(described_class).to receive(:parse_file_name).with(flog_results[:method_containers][0][:path]) { 'app.models.repository' }
 
-        expect(described_class).to receive(:module_name_suffix).with('main#none'){ '' }
-        expect(described_class).to receive(:module_name_suffix).with('Repository#process'){ '.Repository.process' }
-        expect(described_class).to receive(:module_name_suffix).with('Repository#reprocess'){ '.Repository.reprocess' }
+        expect(described_class).to receive(:module_name_suffix).with('main#none') { '' }
+        expect(described_class).to receive(:module_name_suffix).with('Repository#process') { '.Repository.process' }
+        expect(described_class).to receive(:module_name_suffix).with('Repository#reprocess') { '.Repository.reprocess' }
 
         granularity = KalibroClient::Entities::Miscellaneous::Granularity::METHOD
         expect(persistence_strategy).to receive(:create_tree_metric_result).with(

@@ -10,7 +10,7 @@ module Kolekti
         flog: Flog,
         saikuro: Saikuro,
         flay: Flay
-      }
+      }.freeze
 
       def self.parse_all(results_yaml_path, wanted_metric_configurations, persistence_strategy)
         parsed_result = YAML.load_file(results_yaml_path)

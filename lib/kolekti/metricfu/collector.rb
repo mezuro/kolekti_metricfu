@@ -38,7 +38,7 @@ module Kolekti
       def default_value_from(metric_configuration)
         metric = metric_configuration.metric
         if metric.type != 'NativeMetricSnapshot'
-          raise Kolekti::UnavailableMetricError.new("Invalid Metric configuration type")
+          raise Kolekti::UnavailableMetricError.new('Invalid Metric configuration type')
         end
 
         parser = nil
@@ -46,7 +46,7 @@ module Kolekti
           parser = Kolekti::Metricfu::Parsers::PARSERS[metric.code.to_sym]
         end
 
-        raise Kolekti::UnavailableMetricError.new("Metric configuration does not belong to MetricFu") if parser.nil?
+        raise Kolekti::UnavailableMetricError.new('Metric configuration does not belong to MetricFu') if parser.nil?
 
         parser.default_value
       end

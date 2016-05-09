@@ -12,10 +12,10 @@ describe Kolekti::Metricfu::Parsers::Saikuro do
       let(:persistence_strategy) { FactoryGirl.build(:persistence_strategy) }
 
       it 'is expected to persist tree metric results' do
-        expect(described_class).to receive(:parse_file_name).with(saikuro_results[:files][0][:filename]){ 'app.models.repository' }
+        expect(described_class).to receive(:parse_file_name).with(saikuro_results[:files][0][:filename]) { 'app.models.repository' }
 
-        expect(described_class).to receive(:module_name_suffix).with('Repository#process'){ '.Repository.process' }
-        expect(described_class).to receive(:module_name_suffix).with('Repository#reprocess'){ '.Repository.reprocess' }
+        expect(described_class).to receive(:module_name_suffix).with('Repository#process') { '.Repository.process' }
+        expect(described_class).to receive(:module_name_suffix).with('Repository#reprocess') { '.Repository.reprocess' }
 
         granularity = KalibroClient::Entities::Miscellaneous::Granularity::METHOD
         expect(persistence_strategy).to receive(:create_tree_metric_result).with(
