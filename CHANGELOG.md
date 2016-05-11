@@ -5,6 +5,8 @@ using MetricFu
 
 ## Unreleased
 
+* Support Ruby 2.0.0
+
 ## v0.0.1 - 25/04/2016
 
 *   Fix handling of duplicated methods in saikuro and flog compared with
