@@ -5,6 +5,8 @@ using MetricFu
 
 ## Unreleased
 
+## v0.0.2 - 11/05/2016
+
 * Support Ruby 2.0.0
 
 ## v0.0.1 - 25/04/2016
