@@ -19,11 +19,14 @@ describe Kolekti::Metricfu::Parsers::Saikuro do
 
         granularity = KalibroClient::Entities::Miscellaneous::Granularity::METHOD
         expect(persistence_strategy).to receive(:create_tree_metric_result).with(
-          metric_configuration, 'app.models.repository.Repository.reprocess', 10.0, granularity)
+          metric_configuration, 'app.models.repository.Repository.reprocess', 10.0, granularity
+        )
         expect(persistence_strategy).to receive(:create_tree_metric_result).with(
-          metric_configuration, 'app.models.repository.Repository.reprocess', 5.0, granularity).never
+          metric_configuration, 'app.models.repository.Repository.reprocess', 5.0, granularity
+        ).never
         expect(persistence_strategy).to receive(:create_tree_metric_result).with(
-          metric_configuration, 'app.models.repository.Repository.process', 10.0, granularity)
+          metric_configuration, 'app.models.repository.Repository.process', 10.0, granularity
+        )
 
         described_class.parse(saikuro_results, metric_configuration, persistence_strategy)
       end
