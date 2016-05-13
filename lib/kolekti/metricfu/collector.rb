@@ -4,7 +4,9 @@ module Kolekti
   module Metricfu
     class Collector < Kolekti::Collector
       def self.available?
-        system('metric_fu --version', [:out, :err] => '/dev/null') ? true : false
+        # FIXME: below is the better form of writing this, but it does not look compatible with ruby 2.1.5 and 2.0.0
+        # system('metric_fu --version', [:out, :err] => '/dev/null') ? true : false
+        system('metric_fu --version', out: '/dev/null', err: '/dev/null') ? true : false
       end
 
       def initialize
