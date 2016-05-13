@@ -20,9 +20,11 @@ describe Kolekti::Metricfu::Parsers::Flog do
 
         granularity = KalibroClient::Entities::Miscellaneous::Granularity::METHOD
         expect(persistence_strategy).to receive(:create_tree_metric_result).with(
-          metric_configuration, 'app.models.repository.Repository.process', 1.1, granularity)
+          metric_configuration, 'app.models.repository.Repository.process', 1.1, granularity
+        )
         expect(persistence_strategy).to receive(:create_tree_metric_result).with(
-          metric_configuration, 'app.models.repository.Repository.reprocess', 2.0, granularity)
+          metric_configuration, 'app.models.repository.Repository.reprocess', 2.0, granularity
+        )
 
         described_class.parse(flog_results, metric_configuration, persistence_strategy)
       end
