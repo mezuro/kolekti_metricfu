@@ -49,7 +49,7 @@ describe Kolekti::Metricfu::Collector do
       let(:wanted_metric_configurations) { double }
       let(:persistence_strategy) { double }
       let(:metric_fu_params) {
-        ['metric_fu', '--format', 'yaml', '--out', output_path, [:out, :err] => '/dev/null']
+        ['metric_fu', '--format', 'yaml', '--out', output_path, out: '/dev/null', err: '/dev/null']
       }
 
       before :each do
