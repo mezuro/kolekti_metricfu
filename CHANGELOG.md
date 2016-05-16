@@ -5,6 +5,10 @@ using MetricFu
 
 ## Unreleased
 
+## v0.0.3 - 16/05/2016
+
+* Add backwards compatibility up to ruby 2.0.0-p594 (CentOS 7 version)
+
 ## v0.0.2 - 11/05/2016
 
 * Support Ruby 2.0.0
