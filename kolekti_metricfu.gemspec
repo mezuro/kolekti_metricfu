@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'kolekti', '~> 1.1'
   spec.add_dependency 'metric_fu', '~> 4.12.0'
+  spec.add_dependency 'flog', '~> 4.3.2' # Restriction necessary until https://github.com/metricfu/metric_fu/pull/274 does not get merged, released and we update our metric_fu requirements
   # Version 0.2.5 requires ruby >= 2.1 while CentOS 7 is still running 2.0.0
   spec.add_dependency 'unparser', '< 0.2.5' if RUBY_VERSION < '2.1.0'
 

@@ -5,6 +5,10 @@ using MetricFu
 
 ## Unreleased
 
+* Prevent incompatible versions of metric_fu and flog to get installed together
+ - That issue is being worked on by the metric_fu people, so this change will be
+ reverted as soon as that is fixed.
+
 ## v0.0.3 - 16/05/2016
 
 * Add backwards compatibility up to ruby 2.0.0-p594 (CentOS 7 version)
