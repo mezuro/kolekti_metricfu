@@ -5,6 +5,8 @@ using MetricFu
 
 ## Unreleased
 
+## v0.0.4 - 10/06/2016
+
 * Prevent incompatible versions of metric_fu and flog to get installed together
  - That issue is being worked on by the metric_fu people, so this change will be
  reverted as soon as that is fixed.
